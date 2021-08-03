@@ -1,183 +1,235 @@
 import * as React from "react"
+import ReactDOM from 'react-dom'
 
-// styles
-const pageStyles = {
-  color: "#232129",
-  padding: 96,
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-}
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-}
-const headingAccentStyles = {
-  color: "#663399",
-}
-const paragraphStyles = {
-  marginBottom: 48,
-}
-const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
-}
-const listStyles = {
-  marginBottom: 96,
-  paddingLeft: 0,
-}
-const listItemStyles = {
-  fontWeight: 300,
-  fontSize: 24,
-  maxWidth: 560,
-  marginBottom: 30,
-}
+//Images & Components
+import "bootstrap/dist/css/bootstrap.min.css"
+import { Helmet } from 'react-helmet'
+import { Col, Container, Row, ProgressBar, Image} from "react-bootstrap"
+import Layout from "../components/layout"
+import Aos from "Aos"
+import "aos/dist/aos.css"
+import Me from "../images/my-photo.jpg"
+import HtmlIcon from "../images/html5-brands.svg"
+import CssIcon from "../images/css3-alt-brands.svg"
+import BootstrapIcon from "../images/bootstrap-brands.svg"
+import ReactIcon from "../images/react-brands.svg"
 
-const linkStyle = {
-  color: "#8954A8",
-  fontWeight: "bold",
-  fontSize: 16,
-  verticalAlign: "5%",
-}
-
-const docLinkStyle = {
-  ...linkStyle,
-  listStyleType: "none",
-  marginBottom: 24,
-}
-
-const descriptionStyle = {
-  color: "#232129",
-  fontSize: 14,
-  marginTop: 10,
-  marginBottom: 0,
-  lineHeight: 1.25,
-}
-
-const docLink = {
-  text: "Documentation",
-  url: "https://www.gatsbyjs.com/docs/",
-  color: "#8954A8",
-}
-
-const badgeStyle = {
-  color: "#fff",
-  backgroundColor: "#088413",
-  border: "1px solid #088413",
-  fontSize: 11,
-  fontWeight: "bold",
-  letterSpacing: 1,
-  borderRadius: 4,
-  padding: "4px 6px",
-  display: "inline-block",
-  position: "relative",
-  top: -2,
-  marginLeft: 10,
-  lineHeight: 1,
-}
-
-// data
-const links = [
-  {
-    text: "Tutorial",
-    url: "https://www.gatsbyjs.com/docs/tutorial/",
-    description:
-      "A great place to get started if you're new to web development. Designed to guide you through setting up your first Gatsby site.",
-    color: "#E95800",
-  },
-  {
-    text: "How to Guides",
-    url: "https://www.gatsbyjs.com/docs/how-to/",
-    description:
-      "Practical step-by-step guides to help you achieve a specific goal. Most useful when you're trying to get something done.",
-    color: "#1099A8",
-  },
-  {
-    text: "Reference Guides",
-    url: "https://www.gatsbyjs.com/docs/reference/",
-    description:
-      "Nitty-gritty technical descriptions of how Gatsby works. Most useful when you need detailed information about Gatsby's APIs.",
-    color: "#BC027F",
-  },
-  {
-    text: "Conceptual Guides",
-    url: "https://www.gatsbyjs.com/docs/conceptual/",
-    description:
-      "Big-picture explanations of higher-level Gatsby concepts. Most useful for building understanding of a particular topic.",
-    color: "#0D96F2",
-  },
-  {
-    text: "Plugin Library",
-    url: "https://www.gatsbyjs.com/plugins",
-    description:
-      "Add functionality and customize your Gatsby site or app with thousands of plugins built by our amazing developer community.",
-    color: "#8EB814",
-  },
-  {
-    text: "Build and Host",
-    url: "https://www.gatsbyjs.com/cloud",
-    badge: true,
-    description:
-      "Now you’re ready to show the world! Give your Gatsby site superpowers: Build and host on Gatsby Cloud. Get started for free!",
-    color: "#663399",
-  },
-]
 
 // markup
 const IndexPage = () => {
+
+  React.useEffect(() => {
+    Aos.init({duration: 1000});
+  },[]); 
+  
   return (
-    <main style={pageStyles}>
-      <title>Home Page</title>
-      <h1 style={headingStyles}>
-        Congratulations
-        <br />
-        <span style={headingAccentStyles}>— you just made a Gatsby site! </span>
-        <span role="img" aria-label="Party popper emojis">
-          🎉🎉🎉
-        </span>
-      </h1>
-      <p style={paragraphStyles}>
-        Edit <code style={codeStyles}>src/pages/index.js</code> to see this page
-        update in real-time.{" "}
-        <span role="img" aria-label="Sunglasses smiley emoji">
-          😎
-        </span>
-      </p>
-      <ul style={listStyles}>
-        <li style={docLinkStyle}>
-          <a
-            style={linkStyle}
-            href={`${docLink.url}?utm_source=starter&utm_medium=start-page&utm_campaign=minimal-starter`}
-          >
-            {docLink.text}
-          </a>
-        </li>
-        {links.map(link => (
-          <li key={link.url} style={{ ...listItemStyles, color: link.color }}>
-            <span>
-              <a
-                style={linkStyle}
-                href={`${link.url}?utm_source=starter&utm_medium=start-page&utm_campaign=minimal-starter`}
-              >
-                {link.text}
-              </a>
-              {link.badge && (
-                <span style={badgeStyle} aria-label="New Badge">
-                  NEW!
-                </span>
-              )}
-              <p style={descriptionStyle}>{link.description}</p>
-            </span>
-          </li>
-        ))}
-      </ul>
-      <img
-        alt="Gatsby G Logo"
-        src="data:image/svg+xml,%3Csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2a10 10 0 110 20 10 10 0 010-20zm0 2c-3.73 0-6.86 2.55-7.75 6L14 19.75c3.45-.89 6-4.02 6-7.75h-5.25v1.5h3.45a6.37 6.37 0 01-3.89 4.44L6.06 9.69C7 7.31 9.3 5.63 12 5.63c2.13 0 4 1.04 5.18 2.65l1.23-1.06A7.959 7.959 0 0012 4zm-8 8a8 8 0 008 8c.04 0 .09 0-8-8z' fill='%23639'/%3E%3C/svg%3E"
-      />
-    </main>
+    <div style={{fontFamily:"Helvetica"}}>
+      <Helmet title="Anasayfa" defer={false} />
+      <Layout>
+
+      {/*HERO STARTS*/}
+
+        <section id="main" className="py-5 bg-light">
+          <Container data-aos="zoom-in">
+            <Row>
+              <Col lg>
+                <h1 className="display-1 fw-bold d-flex h-100 flex-column justify-content-center">
+                  Hi, I am Can, a Junior Frontend Developer
+                  <a className="btn btn-danger w-25 rounded-0" href="#about" role="button">About Me</a>
+                </h1>
+              </Col>
+              <Col lg>
+                <Image src={Me} fluid />
+              </Col>
+            </Row>
+          </Container>
+        </section>
+
+      {/*HERO ENDS*/}
+
+      {/*ABOUT STARTS*/}
+
+      <section id="about" className="py-5">
+          <Container data-aos="fade-up">
+            <Row className="py-5">
+              <Col lg={7}>
+                <h3 style={{letterSpacing:".5rem"}} className="pb-5 text-danger">
+                  -ABOUT ME
+                </h3>
+                <p className="pb-5">
+                Hi, I am Can, a Junior Frontend Developer. I'm quick learner about new technologies for Frontend. Always get excited when working on a new project. I am still beginning of my career I know but always try to improve my skills like a tireless.
+                </p>
+              </Col>
+              <Col lg={1}>
+
+              </Col>
+              <Col lg={4}>
+                <h3 style={{letterSpacing:".5rem"}} className="pb-5 text-danger">
+                  -SKILLS
+                </h3>
+                <p>
+                  Communication <br />
+                  Critical Thinking <br />
+                  Creative Solving
+                </p>
+              </Col>
+            </Row>
+          </Container>
+        </section>
+
+        {/*ABOUT ENDS*/}
+
+        {/*EXPERIENCE ENDS*/}
+
+        <section id="experience" className="py-5 bg-light">
+          <Container>
+            <Row data-aos="fade-left" className="py-5">
+              <Col lg={4}>
+                <h3 className="pb-5 text-danger">
+                  WORK EXPERIENCE
+                </h3>
+              </Col>
+              <Col lg={1}>
+
+              </Col>
+              <Col lg={7}>
+               <div className="pb-5">
+                  <h3 className="fw-bold">
+                    Junior Frontend Developer
+                  </h3>
+                  <p className="lead">DidiLabs  / June 2021 - Present</p>
+                  <p className="pt-3">Now I work at DidiLabs as a Junior Frontend Developer. After a year experience as a trainee, finally I became a Junior Developer. I really love working here, because I can work on big projects much more and learn new tons of things. We got great team chemistry here so I love it, I improved my communacation skills here.
+                  <br />
+                  <b>Technologies: HTML5, CSS3, Bootstrap, React.JS, Gatsby, Zeplin, GitLab</b>
+                  </p>
+               </div>
+               <div className="pb-5">
+                  <h3 className="fw-bold">
+                    Traniee Frontend Developer
+                  </h3>
+                  <p className="lead">Nutima Studio  / September 2020 - May 2021</p>
+                  <p className="pt-3">After my graduate I have to work at somewhere who can teach me Frontend technologies great, and I found Nutima Studio. I have worked here 9 months and learned new things and practicing these new technologies on real projects. It helps me a lot still.
+                  <br />
+                  <b>Technologies: HTML5, CSS3, Bootstrap, Gulp, Figma, GitHub</b>
+                  </p>
+               </div>
+               <div>
+                  <h3 className="fw-bold">
+                    Internship
+                  </h3>
+                  <p className="lead">SEM  / July 2019 - September 2019</p>
+                  <p className="pt-3">I worked here for my University Internship. Actually here was my first company about software that's why I worked hard too much for two months and learned too much thing about software, especially differance between Frontend and Backend. At the end of the Internship, I decided to become a Frontend developer.
+                  <br />
+                  <b>Technologies: HTML5, CSS3, Photoshop, JQuery</b>
+                  </p>
+               </div>
+              </Col>
+            </Row>
+            <Row data-aos="fade-right" className="py-5">
+              <Col lg={4}>
+                <h3 className="pb-5 text-danger">
+                  EDUCATION
+                </h3>
+              </Col>
+              <Col lg={1}>
+
+              </Col>
+              <Col lg={7}>
+               <div className="pb-5">
+                  <h3 className="fw-bold">
+                    Anadolu University
+                  </h3>
+                  <p className="lead">Bachelor's degree , Management Information Systems  / 2020 - Present</p>
+               </div>
+               <div className="pb-5">
+                  <h3 className="fw-bold">
+                    Uludag University
+                  </h3>
+                  <p className="lead">Associate's degree , Computer Programming / 2018 - 2020</p>
+               </div>
+               <div>
+                  <h3 className="fw-bold">
+                    Warsaw University of Technology
+                  </h3>
+                  <p className="lead">Computer Science / 2017 - 2018 </p>
+               </div>
+              </Col>
+            </Row>
+          </Container>
+        </section>
+
+        {/*EXPERIENCE ENDS*/}
+
+        {/*SPEECH STARTS*/}
+
+        <section className="bg-danger">
+          <Container data-aos="fade-down">
+            <Row className="py-5">
+              <h1 className="fw-bold text-white">
+              “The most important thing is to try and inspire people so that they can be great in whatever they want to do.”
+              </h1>
+              <p className="text-white lead">
+              – Kobe Bryant
+              </p>
+            </Row>
+          </Container>
+        </section>
+
+        {/*SPEECH ENDS*/}
+
+        {/*SKILLS STARTS*/}
+          <section id="skills" className="py-5">
+            <Container data-aos="fade-up">
+              <Row className="py-5">
+                <Col lg={7}>
+                  <h3 style={{letterSpacing:".5rem"}} className="pb-5 text-danger">
+                    -SKILLS
+                  </h3>
+                  <div className="mb-5">
+                    <p className="m-0 lead">
+                      HTML <Image className="mb-1" width="20" height="20" src={HtmlIcon} fluid />
+                    </p>
+                    <ProgressBar className="rounded-0" variant="danger" now={80} label={`80%`} />
+                  </div>
+                  <div className="my-5">
+                    <p className="m-0 lead">
+                      CSS <Image className="mb-1" width="20" height="20" src={CssIcon} fluid />
+                    </p>
+                    <ProgressBar className="rounded-0" variant="danger" now={60} label={`60%`} />
+                  </div>
+                  <div className="my-5">
+                    <p className="m-0 lead">
+                      BOOTSTRAP <Image className="mb-1" width="20" height="20" src={BootstrapIcon} fluid />
+                    </p>
+                    <ProgressBar className="rounded-0" variant="danger" now={80} label={`80%`} />
+                  </div>
+                  <div className="my-5">
+                    <p className="m-0 lead">
+                      REACT.JS <Image className="mb-1" width="20" height="20" src={ReactIcon} fluid />
+                    </p>
+                    <ProgressBar className="rounded-0" variant="danger" now={40} label={`40%`} />
+                  </div>
+                  <div className="my-5">
+                    <p className="m-0 lead">
+                      GATSBY
+                    </p>
+                    <ProgressBar className="rounded-0" variant="danger" now={50} label={`50%`} />
+                  </div>
+                </Col>
+                <Col lg={1}>
+
+                </Col>
+                <Col lg={4}>
+                  <Image src={Me} fluid />
+                </Col>
+              </Row>
+            </Container>
+          </section>
+
+        {/*SKILLS ENDS*/}
+        
+      </Layout>
+    </div>
   )
 }
 
