@@ -9,7 +9,7 @@ export default function Header() {
     <Navbar bg="danger" variant="dark" sticky="top" expand="md">
       <Container>
         <Navbar.Brand href="#main">Can Ekmekciler</Navbar.Brand>
-        <NavbarToggle />
+        <NavbarToggle style={{border:"none"}} />
         <NavbarCollapse>
           <Nav className="ms-auto">
             <Nav.Link href="#main">Home</Nav.Link>
