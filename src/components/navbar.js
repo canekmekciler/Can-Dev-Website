@@ -8,7 +8,7 @@ export default function Header() {
   return (
     <Navbar bg="danger" variant="dark" sticky="top" expand="md">
       <Container>
-        <Navbar.Brand href="#home">Can Ekmekciler</Navbar.Brand>
+        <Navbar.Brand href="#main">Can Ekmekciler</Navbar.Brand>
         <NavbarToggle />
         <NavbarCollapse>
           <Nav className="ms-auto">

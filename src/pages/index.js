@@ -57,7 +57,7 @@ const IndexPage = () => {
                   -ABOUT ME
                 </h3>
                 <p className="pb-5">
-                Hi, I am Can, a Junior Frontend Developer. I'm quick learner about new technologies for Frontend. Always get excited when working on a new project. I am still beginning of my career I know but always try to improve my skills like a tireless.
+                Hi, I am Can, a Junior Frontend Developer. I'm quick learner about new technologies for Frontend. Always get excited when working on a new project. I am still beginning of my career I know but always try to improve my skills like tireless.
                 </p>
               </Col>
               <Col lg={1}>
