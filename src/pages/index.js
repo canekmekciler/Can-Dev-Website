@@ -190,7 +190,7 @@ const IndexPage = () => {
                     <p className="m-0 lead">
                       CSS <Image className="mb-1" width="20" height="20" src={CssIcon} fluid />
                     </p>
-                    <ProgressBar className="rounded-0" variant="danger" now={60} label={`60%`} />
+                    <ProgressBar className="rounded-0" variant="danger" now={70} label={`70%`} />
                   </div>
                   <div className="my-5">
                     <p className="m-0 lead">
@@ -202,7 +202,7 @@ const IndexPage = () => {
                     <p className="m-0 lead">
                       REACT.JS <Image className="mb-1" width="20" height="20" src={ReactIcon} fluid />
                     </p>
-                    <ProgressBar className="rounded-0" variant="danger" now={40} label={`40%`} />
+                    <ProgressBar className="rounded-0" variant="danger" now={50} label={`50%`} />
                   </div>
                   <div className="my-5">
                     <p className="m-0 lead">
