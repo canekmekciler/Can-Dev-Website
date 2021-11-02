@@ -6,7 +6,8 @@ import { Helmet } from 'react-helmet'
 import { Col, Container, Row, ProgressBar, Image} from "react-bootstrap"
 import Layout from "../components/layout"
 import "aos/dist/aos.css"
-import Me from "../images/my-photo.jpg"
+import Photo1 from "../images/my-photo.jpg"
+import Photo2 from "../images/my-photo2.jpg"
 import HtmlIcon from "../images/html5-brands.svg"
 import CssIcon from "../images/css3-alt-brands.svg"
 import BootstrapIcon from "../images/bootstrap-brands.svg"
@@ -33,7 +34,7 @@ const IndexPage = () => {
                 </h1>
               </Col>
               <Col lg>
-                <Image src={Me} fluid />
+                <Image src={Photo1} fluid />
               </Col>
             </Row>
           </Container>
@@ -214,7 +215,7 @@ const IndexPage = () => {
 
                 </Col>
                 <Col lg={4}>
-                  <Image src={Me} fluid />
+                  <Image src={Photo2} fluid />
                 </Col>
               </Row>
             </Container>
