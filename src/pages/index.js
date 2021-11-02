@@ -5,7 +5,6 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import { Helmet } from 'react-helmet'
 import { Col, Container, Row, ProgressBar, Image} from "react-bootstrap"
 import Layout from "../components/layout"
-import Aos from "Aos"
 import "aos/dist/aos.css"
 import Me from "../images/my-photo.jpg"
 import HtmlIcon from "../images/html5-brands.svg"
@@ -16,10 +15,6 @@ import ReactIcon from "../images/react-brands.svg"
 
 // markup
 const IndexPage = () => {
-
-  React.useEffect(() => {
-    Aos.init({duration: 1000});
-  },[]); 
   
   return (
     <div style={{fontFamily:"Helvetica"}}>
@@ -29,7 +24,7 @@ const IndexPage = () => {
       {/*HERO STARTS*/}
 
         <section id="main" className="py-5 bg-light">
-          <Container data-aos="zoom-in">
+          <Container>
             <Row>
               <Col lg>
                 <h1 className="display-1 fw-bold d-flex h-100 flex-column justify-content-center">
@@ -49,7 +44,7 @@ const IndexPage = () => {
       {/*ABOUT STARTS*/}
 
       <section id="about" className="py-5">
-          <Container data-aos="fade-up">
+          <Container>
             <Row className="py-5">
               <Col lg={7}>
                 <h3 style={{letterSpacing:".5rem"}} className="pb-5 text-danger">
@@ -82,7 +77,7 @@ const IndexPage = () => {
 
         <section id="experience" className="py-5 bg-light">
           <Container>
-            <Row data-aos="fade-left" className="py-5">
+            <Row className="py-5">
               <Col lg={4}>
                 <h3 className="pb-5 text-danger">
                   WORK EXPERIENCE
@@ -124,7 +119,7 @@ const IndexPage = () => {
                </div>
               </Col>
             </Row>
-            <Row data-aos="fade-right" className="py-5">
+            <Row className="py-5">
               <Col lg={4}>
                 <h3 className="pb-5 text-danger">
                   EDUCATION
@@ -162,7 +157,7 @@ const IndexPage = () => {
         {/*SPEECH STARTS*/}
 
         <section className="bg-danger">
-          <Container data-aos="fade-down">
+          <Container>
             <Row className="py-5">
               <h1 className="fw-bold text-white">
               “The most important thing is to try and inspire people so that they can be great in whatever they want to do.”
@@ -178,7 +173,7 @@ const IndexPage = () => {
 
         {/*SKILLS STARTS*/}
           <section id="skills" className="py-5">
-            <Container data-aos="fade-up">
+            <Container>
               <Row className="py-5">
                 <Col lg={7}>
                   <h3 style={{letterSpacing:".5rem"}} className="pb-5 text-danger">
